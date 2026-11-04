@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pokémon Center · Jacob's Research Lab</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="shell">
+        <header><a class="brand" href="/"><span class="ball"></span>POKÉMON <b>CENTER</b></a>
+            <div class="header-right"><button id="sound" aria-pressed="false">♫ Sonido OFF</button></div>
+        </header>
+        <div class="workspace">
+            <section class="game">
+                <div class="game-bar"><span>● CENTRO DE INVESTIGACIÓN</span><span id="location">PALLET TOWN · 01</span>
+                </div>
+                <div class="scene"><canvas id="world" width="480" height="272"
+                        aria-label="Centro Pokémon pixel art. Mueve al entrenador con las flechas o WASD y pulsa E junto al escáner."></canvas><button
+                        id="station" class="station" aria-label="Interactuar con el escáner">E · USAR ESCÁNER</button>
+                    <div id="scanline"></div>
+                </div>
+                <div class="dialogue">
+                    <div class="portrait">✚</div>
+                    <div><span class="speaker">DRA. JOY <small>ASISTENTE DE INVESTIGACIÓN</small></span>
+                        <p id="dialogue" aria-live="polite">¡Bienvenido, entrenador! Acércate al escáner o pulsa «Elegir
+                            imagen» para comenzar.</p>
+                    </div><span class="triangle">▼</span>
+                </div>
+                <div class="game-controls"><span>↑ ↓ ← → / WASD <b>Mover</b> &nbsp; E
+                        <b>Interactuar</b></span><span>También puedes tocar el escáner ↗</span></div>
+            </section>
+            <aside class="panel">
+                <div class="panel-top"><span class="eyebrow">ESTACIÓN DE ANÁLISIS</span><span id="step">01 / 03</span>
+                </div>
+                <h2 id="panelTitle">Un nuevo encuentro.</h2>
+                <p class="muted" id="panelDesc">Sube una imagen y deja que tu modelo haga el resto.</p><label
+                    class="drop" id="drop" tabindex="0" role="button" aria-label="Elegir imagen JPEG o PNG"><input
+                        id="file" type="file" accept="image/jpeg,image/png" hidden>
+                    <div id="empty"><span class="upload-ball ball"></span><strong>Elegir imagen</strong><span>o
+                            arrástrala hasta aquí</span><small>JPG o PNG · máximo 8 MB</small></div><img id="preview"
+                        alt="Imagen seleccionada" hidden><span class="change" hidden>Cambiar imagen ↗</span>
+                </label><button id="analyze" class="primary" disabled>IDENTIFICAR POKÉMON <span>↗</span></button>
+                <p id="error" role="alert"></p>
+                <div id="result" hidden>
+                    <div class="result-label">POKÉMON IDENTIFICADO</div>
+                    <h3 id="species"></h3>
+                    <div class="confidence"><span>Score del modelo</span><strong id="score"></strong></div>
+                    <div class="meter"><i id="meter"></i></div>
+                    <div class="alternatives" id="alternatives"></div><button id="download" class="secondary">↓ Guardar
+                        evidencia JSON</button><button id="again" class="text-button">Otro encuentro →</button>
+                </div>
+            </aside>
+        </div>
+        </main>
+    </div>
+    <script src="/app.js"></script>
+</body>
+
+</html>
